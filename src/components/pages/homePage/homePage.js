@@ -9,7 +9,7 @@ class homePage extends React.Component {
             <div>
                 <ReactPlayer 
                 controls = 'true'
-                url='https://www.youtube.com/watch?v=-K8Oid03eUU' />
+                url='http://183.82.36.231:20000/videoplayback.mp4' />
             </div>
             
         )
