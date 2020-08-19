@@ -45,7 +45,34 @@ class VideoPlayer extends React.Component{
         setInterval(() => this.setState({ currentTime: this.currentTime() }), 10);
     
         setInterval(() => this.setState({ length: this.duration() }), 10);
-        document.addEventListener('keydown', e => console.log(`document: ${e.key}`));
+        document.addEventListener('keydown', e => {
+          if(e.keyCode === 32) 
+          { 
+            console.log("SPACE")
+            this.play();
+            const v = document.getElementById("v");
+            
+        
+            if (this.state.paused == true) {
+              v.play();
+              this.setState({
+                paused: false
+              });
+            } else {
+              v.pause();
+              this.setState({
+                paused: true
+              });
+            }          }
+          else if(e.keyCode === 37)
+          {
+            document.getElementById("v").currentTime = document.getElementById("v").currentTime - 5;
+          }
+          else if(e.keyCode === 39)
+          {
+            document.getElementById("v").currentTime = document.getElementById("v").currentTime + 5;
+          }
+        });
         this.escFunction();
         var timeout;
         window.now = this;
@@ -62,6 +89,7 @@ class VideoPlayer extends React.Component{
       }
       
       play() {
+        console.log("SPACE1")
         this.duration();
         const v = document.getElementById("v");
         const play_pause = document.querySelector(".play_pause");
@@ -217,29 +245,34 @@ class VideoPlayer extends React.Component{
             this.state.appearSettings
             ?
             <div className="overlay-containers">
+            <center>
+              <div className="video-player-title">
+                Jumanji: The Next Level
+              </div>
+            </center>
             <div className="cross-close-button">
               <img className="play-pause-button" onClick={() => window.history.back()} src={Cross} />
             </div>
             <div className="centre-video-controls">
-            <img className="play-pause-button" src={Previous} />
+            <img className="play-pause-button" style={{width: "50px",height:"50px"}} src={Previous} onClick={() => {document.getElementById("v").currentTime = document.getElementById("v").currentTime - 5}}/>
               <div onClick={this.play.bind(this)} className="play_pause_btn">
                 {
                     this.state.paused
                     ?
-                    <img className="play-pause-button" src={Play} />
+                    <img className="play-pause-button" style={{width: "50px",height:"50px"}} src={Play} />
                     :
-                    <img className="play-pause-button" src={Pause} />
+                    <img className="play-pause-button" style={{width: "50px",height:"50px"}} src={Pause} />
                 }
               </div>
-              <img className="play-pause-button" src={Forward} />
+              <img className="play-pause-button" style={{width: "50px",height:"50px"}} src={Forward} onClick={() => {document.getElementById("v").currentTime = document.getElementById("v").currentTime + 5}}/>
             </div>
           </div>
             :
             <div></div>
           }
           
-          <video id="v" width={this.state.width} height="auto">
-          <source src={"http://techslides.com/demos/sample-videos/small.mp4"} type="video/mp4" />
+          <video id="v" width={this.state.width} height={window.innerHeight +"px"}>
+          <source src={"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"} type="video/mp4" />
         </video>
         </div>
         {

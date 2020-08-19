@@ -255,7 +255,7 @@ input[type=range]::-webkit-slider-thumb {
   
 .centre-video-controls
 {
-  width: 200px;
+  width: 400px;
   display: flex;
   justify-content: space-between;
   align-items: center; 
@@ -263,12 +263,20 @@ input[type=range]::-webkit-slider-thumb {
 
 .cross-close-button
 {
-  top:20px;
+  top:0;
+  margin-top: 20px;
   right:20px;
   position: absolute;
 }
-
-
+.video-player-title
+{
+  position: absolute;
+  top:0;
+  color : #f6f6f6;
+  font-family: 'Poppins';
+  font-size: 35px;
+  margin-top: 10px;
+}
 
 // input[type=range]:focus::-webkit-slider-runnable-track {
 //   background: #FFDD00;
