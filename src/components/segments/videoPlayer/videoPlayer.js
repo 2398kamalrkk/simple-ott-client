@@ -16,7 +16,7 @@ class VideoPlayer extends React.Component{
         super(props, context);
         this.escFunction = this.escFunction.bind(this);
         this.state = {
-          paused: true,
+          paused: false,
           muted: false,
           length: null,
           formattedLength: null,
@@ -26,6 +26,21 @@ class VideoPlayer extends React.Component{
           fullScreen : false,
           width : window.innerWidth +"px",
           appearSettings : true,
+          videoId : -1,
+          poster : "",
+          videoType : "",
+          videoName : "",
+          genre : "",
+          videoYear : "",
+          rating : "",
+          duration : "",
+          videoDesc : "",
+          directors : "",
+          starring : "",
+          subtitles : "",
+          audio : "",
+          publisher : "",
+          videoUrl : "",
         };
 
       }
@@ -41,6 +56,20 @@ class VideoPlayer extends React.Component{
         });
       }
       componentDidMount() {
+        fetch(process.env.REACT_APP_BASE_URL + "/movie/getMovie/" + this.props.videoId, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+          .then(res => res.json())
+          .then(json => {
+              console.log("HELLO");
+              console.log(json);
+              this.setState({videoName : json.videoName , videoUrl : json.videoUrl});
+              console.log(this.state.videoUrl)
+          });
+      this.setState({videoId : this.props.videoId});
         this.customVolume();
         setInterval(() => this.setState({ currentTime: this.currentTime() }), 10);
     
@@ -245,11 +274,9 @@ class VideoPlayer extends React.Component{
             this.state.appearSettings
             ?
             <div className="overlay-containers">
-            <center>
               <div className="video-player-title">
-                Jumanji: The Next Level
+                {this.state.videoName}
               </div>
-            </center>
             <div className="cross-close-button">
               <img className="play-pause-button" onClick={() => window.history.back()} src={Cross} />
             </div>
@@ -271,8 +298,8 @@ class VideoPlayer extends React.Component{
             <div></div>
           }
           
-          <video id="v" width={this.state.width} height={window.innerHeight +"px"}>
-          <source src={"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"} type="video/mp4" />
+          <video id="v" src={this.state.videoUrl} width={this.state.width} height={window.innerHeight +"px"} autoPlay={true}>
+          {/* <source src={this.state.videoUrl} type="video/mp4" /> */}
         </video>
         </div>
         {

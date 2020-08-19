@@ -75,7 +75,7 @@ class VideoDetails extends React.Component{
                                 <Row>
                                     <div className="video-control">
                                         <div>
-                                            <div style={{cursor: "pointer"}}><MaterialIcon icon="play_circle_filled" size={40} color="#ffdd00"/></div>
+                                            <div onClick={() => {window.location.href = "/play/"+this.state.videoId}} style={{cursor: "pointer"}}><MaterialIcon icon="play_circle_filled" size={40} color="#ffdd00"/></div>
                                             <p className="video-details-title">Play</p>
                                         </div>
                                         <div>
