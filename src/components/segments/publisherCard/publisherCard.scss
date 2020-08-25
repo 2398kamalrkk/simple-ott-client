@@ -1,0 +1,81 @@
+.publisher-card-c
+{
+    width: 15vw;
+    min-height: 250px;
+    float: left;
+    margin-right: 2vw;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    background-color: #FFDD00;
+}
+.popular-publisher-logo
+{
+    width: 70px;
+    min-height: 70px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 100px;
+}
+.popular-publisher-logo-c
+{
+   
+}
+.popular-publisher-name
+{
+    font-size: 1rem;
+    color : #000000;
+    font-family: 'Poppins';
+}
+.popular-publisher-subscribers
+{
+    font-size: 0.8rem;
+    color : #FF1414;
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+.popular-publisher-subscribe
+{
+    width: 50%;
+    min-height: 40px;
+    border : 1px solid #000000;
+    font-size: 0.75rem;
+    color : #000000;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25%;
+    margin-top: 5.5vh;
+    border-radius: 5px;
+}
+.popular-publisher-subscribed
+{
+    width: 50%;
+    min-height: 40px;
+    border : 1px solid #000000;
+    font-size: 0.75rem;
+    background-color : #000000;
+    color : #FFDD00;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25%;
+    margin-top: 5.5vh;
+    border-radius: 5px;
+}
+@media (pointer:none), (pointer:coarse)
+{
+.publisher-card-c
+{
+    width: 150px;
+    min-height: 250px;
+    float: left;
+    margin-right: 2vw;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    background-color: #FFDD00;
+}
+}

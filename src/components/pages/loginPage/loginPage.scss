@@ -1,0 +1,73 @@
+
+  #login .container #login-row #login-column #login-box {
+    margin-top: 120px;
+    max-width: 600px;
+    height: 420px;
+    border: 1px solid #b6b6b6;
+  }
+  #login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+  }
+  #login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
+  }
+  .form-group
+  {
+      left:0;
+  }
+  .main-login-c
+  {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+  }
+  #login
+  {
+      width: 55vw;      
+  }
+  #login-box
+  {
+    height: 80vh;
+  }
+  .full-button
+  {
+    margin-top:40px;
+    width: 100%;
+    height: 40px;
+    background-color: #ffdd00;
+    border: 1px solid #ffdd00;
+    font-family: 'Poppins';
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+  }
+  .full-button:hover
+  {
+    background-color: #dbc21e;
+  }
+  .full-button-outline
+  {
+    width: 100%;
+    height: 40px;
+    background-color: #ffffff;
+    border: 1px solid #ffdd00;
+    font-family: 'Poppins';
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+  }
+  .full-button-outline:hover
+  {
+    background-color: #ececec;
+  }
+  .text-label
+  {
+      color: #000000;
+      font-family: 'Poppins';
+  }

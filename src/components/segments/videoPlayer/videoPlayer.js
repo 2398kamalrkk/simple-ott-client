@@ -56,10 +56,11 @@ class VideoPlayer extends React.Component{
         });
       }
       componentDidMount() {
-        fetch(process.env.REACT_APP_BASE_URL + "/movie/getMovie/" + this.props.videoId, {
+        fetch(process.env.REACT_APP_BASE_URL + "/services/movie/getMovie/" + this.props.videoId, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
+            'Authorization' : 'JWT ' + localStorage.getItem("token"),
           },
         })
           .then(res => res.json())
@@ -115,8 +116,21 @@ class VideoPlayer extends React.Component{
           document.getElementById('cont').style.cursor = 'none';
         }, 1000);
     }
+    this.updateWatchedCount();
       }
-      
+      updateWatchedCount()
+    {
+      fetch(process.env.REACT_APP_BASE_URL + "/services/trending/updateViews/" + this.props.videoId, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization' : 'JWT ' + localStorage.getItem("token"),
+        },
+      })
+        .then(res => res.json())
+        .then(json => {
+        });
+    }
       play() {
         console.log("SPACE1")
         this.duration();

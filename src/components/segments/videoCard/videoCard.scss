@@ -1,0 +1,291 @@
+.video-card-c
+{
+    width: 15vw;
+    height: 30vh;
+    
+    float: left;
+    margin-right: 2vw;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+.bg-image-video-card
+{
+    width: 15vw;
+    height: 27vh;
+    cursor: pointer;
+}
+.bg-image-video-card-i
+{
+    width: 15vw;
+    height: 30vh;
+    border-radius: 10px;
+    object-fit: inherit;
+    object-position: right top;
+    position: relative;
+    opacity: 1;
+}
+
+
+.bg-image-video-card-desc:hover
+{
+    opacity: 1;
+}
+.hover-transparent
+{
+    position: absolute;
+    font-size :20pt;   
+    top : 0;
+    left: 0;
+    padding-top : 5px; 
+    padding-right : 5px;  
+    width: 15vw;
+    height: 27vh;
+}
+
+.hover-transparent ~ .bg-image-video-card-desc:hover
+{
+    background-color: rgba(1,1,1,0.8);
+}
+
+.bg-image-video-card-desc
+{
+    color : #ffffff;
+    position: absolute;
+    opacity: 0;
+    font-size :20pt;   
+    top : 0;
+    padding-left : 5px;
+    padding-top : 5px; 
+    padding-right : 5px;  
+    height: 100%;
+}
+.hover-front
+{
+    margin-top: 6vh;
+    overflow: hidden;
+    width: 100%;
+    height: 10px;
+}
+.hover-video-name
+{
+    font-size: 1rem;
+    font-weight: 600;
+    width: 12vw;
+    text-align: left;
+    color : #ffffff;
+    font-family: 'Poppins';
+    float: left;
+    height: 2vh;
+    display: flex;
+    align-items: top;
+}
+.hover-video-watch
+{
+    font-size: 1.6rem;
+    float: left;
+    top: 0;
+    height: 5vh;
+    color : #ffdd00;
+    font-weight: 600;
+}
+.hover-video-genre
+{
+    float: left;
+    font-family: 'Poppins';
+    font-size: 0.6rem;
+    color: #ffdd00;
+    margin-right: 10px;
+}
+.hover-video-year
+{
+    float: left;
+    font-family: 'Poppins';
+    font-size: 0.6rem;
+    color: #ffdd00;
+    margin-right: 10px;
+}
+.hover-video-duration
+{
+    float: left;
+    font-family: 'Poppins';
+    font-size: 0.6rem;
+    color: #ffdd00;
+}
+.hover-dot
+{
+    font-family: 'Poppins';
+    font-size: 0.6rem;
+    font-weight: 600;
+    float: left;
+    margin-top: 6px;
+    width: 2px;
+    height: 2px;
+    border-radius: 3px;
+    background-color: #ffdd00;
+    font-size: 20pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+}
+.hover-play-now
+{
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: 'Poppins';
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 15vw;
+    min-height: 3.5vh;
+    margin-left: -5px;
+    margin-top : -5px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color : #0e0e0e;
+    bottom: 0;
+    background-color: #ffdd00;
+}
+.hover-video-desc
+{
+    margin-top:5px;
+    font-size: 0.6rem;
+    font-family: 'Poppins';
+    white-space: initial;
+    text-align: left;
+    width: 14.2vw;
+    height: 22vh;
+    overflow: hidden;
+    display: flex;
+    float: left;
+}
+.hover-video-publisher
+{
+    margin-top: -8vh;
+    font-size: 0.6rem;
+    width: 14.2vw;
+    float: left;
+    font-family: 'Poppins';
+    color: #3082FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (pointer:none), (pointer:coarse)
+{
+    .video-card-c
+{
+    width: 150px;
+    min-height: 27vh;
+    float: left;
+    margin-right: 2vw;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+.bg-image-video-card
+{
+    width: 150px;
+    min-height: 27vh;
+    cursor: pointer;
+}
+.bg-image-video-card-i
+{
+    width: 150px;
+    min-height: 27vh;
+    border-radius: 10px;
+    object-fit: inherit;
+    object-position: right top;
+    position: relative;
+    opacity: 1;
+}
+
+
+.bg-image-video-card-desc:hover
+{
+    
+}
+.hover-transparent
+{
+    position: absolute;
+    font-size :20pt;   
+    top : 0;
+    left: 0;
+    padding-top : 5px; 
+    padding-right : 5px;  
+    width: 150px;
+    min-height: 100%;
+    background-color: rgba(1,1,1,0.4);
+}
+
+.hover-transparent ~ .bg-image-video-card-desc:hover
+{
+    
+}
+
+.bg-image-video-card-desc
+{
+    color : #ffffff;
+    position: absolute;
+    opacity: 1;
+    font-size :20pt;   
+    top : 0;
+    padding-left : 5px;
+    padding-top : 5px; 
+    padding-right : 5px;  
+    min-height: 100%;
+}
+.hover-front
+{
+    margin-top: 8vh;
+}
+
+.hover-video-name
+{
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    text-align: left;
+    color : #ffffff;
+    font-family: 'Poppins';
+    min-height: 5vh;
+    justify-content: center;
+    display: flex;
+    bottom : 0;
+    
+}
+.hover-video-watch
+{
+    visibility: hidden;
+}
+.hover-video-genre
+{
+    visibility: hidden;
+}
+.hover-video-year
+{
+    visibility: hidden;
+}
+.hover-video-duration
+{
+    visibility: hidden;
+}
+.hover-dot
+{
+    visibility: hidden;
+}
+.hover-play-now
+{
+    visibility: hidden;
+}
+.hover-video-desc
+{
+    visibility: hidden;
+}
+.hover-video-publisher
+{
+    visibility: hidden;
+}
+}

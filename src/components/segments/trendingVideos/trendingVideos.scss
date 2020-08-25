@@ -6,7 +6,14 @@
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    scrollbar-width: none;
 }
 .card-t {
     display: inline-block;
   }
+  .card-t:first-child{
+    margin-left:8.33333333vw;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+}

@@ -14,11 +14,17 @@ class NavBar extends React.Component{
             focused : false,
             apiCalled : false,
             redirect : false,
+            signInStatus : false,
         }
     }
     componentDidMount()
     {
         this.setState({videoId : this.props.videoId});
+        if(localStorage.getItem("token") != "false")
+        {
+            this.setState({signInStatus : true})
+        }
+        
     };
     onBlur()
     {
@@ -43,10 +49,13 @@ class NavBar extends React.Component{
     }
     callSearchApi(key)
     {
-        fetch(process.env.REACT_APP_BASE_URL + "/movie/searchMovie/"+ key, {
+        console.log(localStorage.getItem("token"))
+        console.log(localStorage.getItem("username"))
+
+        fetch(process.env.REACT_APP_BASE_URL + "/services/movie/searchMovie/"+ key, {
             method: 'GET',
             headers: {
-              'Content-Type': 'application/json',
+              'Authorization' : 'JWT ' + localStorage.getItem("token"),
             },
           })
             .then(res => res.json())
@@ -61,6 +70,7 @@ class NavBar extends React.Component{
                     <Col md={1} ></Col>
                     <Col md={1} style={{paddingLeft:"0px"}}><div className="logo"> LOGO</div></Col>
                     <Col md={4} >
+                        <Row style={{height:"20px"}}>
                         <div className="menu-items">
                             <ul className="menu-item-list">
                                 <a href="/" className="nav">Home</a>
@@ -68,6 +78,40 @@ class NavBar extends React.Component{
                                 <a className="nav">Videos</a>
                             </ul>
                         </div>
+                        </Row>
+                        <Row style={{height:"20px"}}>
+                            <div className="menu-items-highlight">
+                                <ul>
+                                    {
+                                        this.props.fromPage == "home"
+                                        ?
+                                        <li className="nav-highlight whiteNav"></li>
+                                        :
+                                        <li className="nav-highlight blackNav"></li>
+
+                                    }
+                                    
+                                    {
+                                        this.props.fromPage == "channel"
+                                        ?
+                                        <li className="nav-highlight whiteNav"></li>
+                                        :
+                                        <li className="nav-highlight blackNav"></li>
+
+                                    }
+                                    {
+                                        this.props.fromPage == "video"
+                                        ?
+                                        <li className="nav-highlight whiteNav"></li>
+                                        :
+                                        <li className="nav-highlight blackNav"></li>
+
+                                    }
+                                </ul>
+                            </div>
+                        </Row>
+                        
+                        
                     </Col>
                     <Col md={4} >
                         <div className="search-box">
@@ -109,11 +153,27 @@ class NavBar extends React.Component{
                     </Col>
                     <Col md={1} style={{paddingRight:"0px"}}>
                         <div className="profile-main">
-                            <div className="profile"> 
-                                <div className="account-icon"><MaterialIcon icon="account_circle" size={44} color="black"/></div>
-                                <div className="profile-name">{this.state.name}</div>
-                                <MaterialIcon icon="arrow_drop_down" size={30} color="black"/>
+                            {
+                                this.state.signInStatus ?
+                                <div>
+                                    <div className="profile"> 
+                                    <div className="account-icon"><MaterialIcon icon="account_circle" size={44} color="#ffdd00"/></div>
+                                    <div className="profile-name">{localStorage.getItem("username")}</div>
+                                    <MaterialIcon icon="arrow_drop_down" size={30} color="#ffdd00"/>
+                                </div>
+                                <div class="dropdown-content">
+                                    <a className="dropdown-content-list" href="/account">My Account</a>
+                                    <a className="dropdown-content-list" href="/watchlist">My Watchlist</a>
+                                    <a className="dropdown-content-list" href="" onClick={() => localStorage.setItem("token","false")}>Sign out</a>
+                                </div>
                             </div>
+                            :
+                                <div className="profile"> 
+                                    <div className="account-icon"><MaterialIcon icon="account_circle" size={44} color="#ffdd00"/></div>
+                                    <div className="profile-name" onClick={() => window.location.href="/login"}>Login</div>
+                                    <MaterialIcon icon="arrow_drop_down" size={30} color="#ffdd00"/>
+                                </div>
+                            }
                         </div></Col>
                         <Col md={1} ></Col>
                 </Row>

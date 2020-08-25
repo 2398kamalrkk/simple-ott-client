@@ -24,12 +24,14 @@
     border-bottom-left-radius: 5px;
     height: 100px;
     max-width: 180px;
+    min-width: 180px;
     overflow: hidden;
 }
 .search-image-desc-c
 {
     margin-left: 20px;
     height: 100px;
+    
     max-width: 150px;
     float: left;
 }
@@ -38,6 +40,9 @@
     font-size: 14pt;
     text-align: left;
     margin-top: 15px;
+    max-height: 30px;
+    max-width: 180px;
+    overflow: hidden;
     color: antiquewhite;
 }
 .search-genre
@@ -45,6 +50,9 @@
     font-size: 8.5pt;
     text-align: left;
     color: antiquewhite;
+    max-width: 180px;
+    max-height: 30px;
+    overflow: hidden;
 }
 .search-year
 {

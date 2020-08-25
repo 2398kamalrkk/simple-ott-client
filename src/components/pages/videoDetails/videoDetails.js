@@ -3,6 +3,8 @@ import './videoDetails.scss';
 import { Container, Row, Col } from 'react-bootstrap';
 import NavBar from '../../segments/navBar/navBar';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
+import UsersWatched from '../../segments/usersWatched/usersWatched';
+import FooterBar from '../../segments/footerBar/footerBar';
 
 class VideoDetails extends React.Component{
     constructor(props)
@@ -27,10 +29,11 @@ class VideoDetails extends React.Component{
     }
     componentDidMount()
     {
-        fetch(process.env.REACT_APP_BASE_URL + "/movie/getMovie/" + this.props.videoId, {
+        fetch(process.env.REACT_APP_BASE_URL + "/services/movie/getMovie/" + this.props.videoId, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
+              'Authorization' : 'JWT ' + localStorage.getItem("token"),
             },
           })
             .then(res => res.json())
@@ -117,6 +120,27 @@ class VideoDetails extends React.Component{
                         </Col>                        
                         
                         <Col md={1} className={"col"}></Col>
+                    </Row>
+                    <Row>
+                        <Col md={1}></Col>
+                        <Col style={{display:"flex",justifyContent:"start",paddingLeft:"0px"}} md={10}><div className="users-watched-title">Popular Videos</div></Col>
+                        <Col md={1}></Col>
+                    </Row>
+                    <Row>
+                            <Col style={{display:"flex",justifyContent:"start",paddingLeft:"0px",paddingRight:"0px"}} md={12}>
+                                
+                                        <UsersWatched/>
+                                    
+                            </Col>
+                    </Row>
+                    <Row>
+                        <Col md={1}></Col>
+                            <Col style={{display:"flex",justifyContent:"start",paddingLeft:"0px",paddingRight:"0px"}} md={10}>
+                                
+                                        <FooterBar/>
+                                    
+                            </Col>
+                        <Col md={1}></Col>
                     </Row>
                 </Container>
             </div>

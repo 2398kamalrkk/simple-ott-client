@@ -1,9 +1,9 @@
 import React from 'react';
-import './usersWatched.scss';
+import './trendingVideos.scss';
 import { Container, Row, Col } from 'react-bootstrap';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 import VideoCard from '../../segments/videoCard/videoCard';
-class UsersWatched extends React.Component{
+class TrendingVideos extends React.Component{
     constructor(props)
     {
         super(props);
@@ -34,7 +34,7 @@ class UsersWatched extends React.Component{
     render(){
         return(
                 <div className="users-watched">
-                     {
+                    {
                       this.state.trendVideos.map((item) => 
                         <div className="card-t"><VideoCard name={item.videoName} genre={item.genre} year={item.releaseYear} duration={item.duration} desc={item.description} image={item.cardUrl} streamer={item.publisher} key={item.id} id={item.id}/></div>
                     )}
@@ -43,4 +43,4 @@ class UsersWatched extends React.Component{
           )
     }
 }
-export default UsersWatched;
+export default TrendingVideos;

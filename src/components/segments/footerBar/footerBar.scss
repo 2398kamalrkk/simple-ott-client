@@ -1,0 +1,28 @@
+.footer-bar
+{
+  margin-bottom: 20px;
+}
+.footer-logo
+{
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-logo-override
+{
+  height: 70px;
+  color : #ffdd00;
+  font-weight: 600;
+  font-size: 26pt;
+  font-family: 'Poppins';
+}
+.about
+{
+  color: #F6F6F6;
+  font-size: 0.8rem;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  font-family: 'Poppins';
+}
