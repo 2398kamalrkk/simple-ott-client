@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="69.249" height="83.099" viewBox="0 0 69.249 83.099">
+  <g id="Component_24_2" data-name="Component 24 – 2" transform="translate(0 0)">
+    <g id="Group_36" data-name="Group 36" transform="translate(0 0)">
+      <g id="Icon_metro-play" data-name="Icon metro-play" transform="translate(0 0)" opacity="0.6">
+        <path id="Icon_metro-play-2" data-name="Icon metro-play" d="M8.355,5.784,77.6,47.333,8.355,88.883Z" transform="translate(-8.355 -5.784)" fill="#fff" opacity="0"/>
+      </g>
+    </g>
+    <path id="Icon_ionic-md-pause" data-name="Icon ionic-md-pause" d="M6.75,87.5H29.757V4.5H6.75Zm45.993-83v83H75.75V4.5Z" transform="translate(-6.567 -4.5)" fill="#fff"/>
+  </g>
+</svg>
