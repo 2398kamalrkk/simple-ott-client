@@ -1,7 +1,7 @@
 .video-card-c
 {
     width: 15vw;
-    height: 30vh;
+    height: 250px;
     
     float: left;
     margin-right: 2vw;
@@ -12,13 +12,13 @@
 .bg-image-video-card
 {
     width: 15vw;
-    height: 27vh;
+    height: 250px;
     cursor: pointer;
 }
 .bg-image-video-card-i
 {
     width: 15vw;
-    height: 30vh;
+    height: 250px;
     border-radius: 10px;
     object-fit: inherit;
     object-position: right top;
@@ -40,7 +40,7 @@
     padding-top : 5px; 
     padding-right : 5px;  
     width: 15vw;
-    height: 27vh;
+    height: 250px;
 }
 
 .hover-transparent ~ .bg-image-video-card-desc:hover
@@ -76,7 +76,7 @@
     color : #ffffff;
     font-family: 'Poppins';
     float: left;
-    height: 2vh;
+    height: 40px;
     display: flex;
     align-items: top;
 }
@@ -137,7 +137,7 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     width: 15vw;
-    min-height: 3.5vh;
+    min-height: 40px;
     margin-left: -5px;
     margin-top : -5px;
     position: absolute;
@@ -156,14 +156,14 @@
     white-space: initial;
     text-align: left;
     width: 14.2vw;
-    height: 22vh;
+    height: 200px;
     overflow: hidden;
     display: flex;
     float: left;
 }
 .hover-video-publisher
 {
-    margin-top: -8vh;
+    margin-top: -85px;
     font-size: 0.6rem;
     width: 14.2vw;
     float: left;

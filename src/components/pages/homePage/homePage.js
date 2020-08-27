@@ -24,6 +24,8 @@ class homePage extends React.Component {
             nextIcon: <img src={Forward}></img>,
             prevIcon: <img src={Backward}></img>,
             trendVideos : [],
+            key : Date.now(),
+            flag : false,
 		};
 	}
 
@@ -34,8 +36,12 @@ class homePage extends React.Component {
             
 		});
     }
+
     componentDidMount()
     {
+        if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
+            window.location.reload()
+        }
         this.getTrendingVideos();
     }
     getTrendingVideos()
@@ -77,7 +83,7 @@ class homePage extends React.Component {
                         >
                         {
                             this.state.trendVideos.map((item) => 
-                            <Carousel.Item >
+                            <Carousel.Item key={item.id}>
                                         <div className="carousel-c" onClick={() => window.location.href="/video/"+item.id}>
                                             <img
                                     className="carousel-image-home"
@@ -103,7 +109,7 @@ class homePage extends React.Component {
                     <Row>
                             <Col style={{display:"flex",justifyContent:"start",paddingLeft:"0px",paddingRight:"0px"}} md={12}>
                                 
-                                        <TrendingVideos/>
+                                        <TrendingVideos key={this.state.key}/>
                                     
                             </Col>
                     </Row>
@@ -115,7 +121,7 @@ class homePage extends React.Component {
                     <Row>
                             <Col style={{display:"flex",justifyContent:"start",paddingLeft:"0px",paddingRight:"0px"}} md={12}>
                                 
-                                        <PopularChannels/>
+                                        <PopularChannels key={this.state.key}/>
                                     
                             </Col>
                     </Row>

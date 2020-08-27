@@ -84,7 +84,11 @@ body {
   position: relative;
   height: auto;
   float: left;
-  display: block;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
 }
 
 .controls {
@@ -347,4 +351,9 @@ input[type=range]::-webkit-slider-thumb {
 .VideoPlayer
 {
   background-color: #000000;
+}
+.status_video
+{
+  font-size: 24px;
+  color: #ffffff;
 }

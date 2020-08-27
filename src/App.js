@@ -7,6 +7,8 @@ import { useParams } from "react-router";
 import VideoDetails from './components/pages/videoDetails/videoDetails';
 import VideoPlayer from './components/segments/videoPlayer/videoPlayer';
 import LoginPage from './components/pages/loginPage/loginPage';
+import ChannelDetails from './components/pages/channelDetails/channelDetails';
+
 import { Slide,ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -21,6 +23,10 @@ function Player() {
   let { id } = useParams();
   return <VideoPlayer videoId={id}/>;
 }
+function Channel() {
+  let { id } = useParams();
+  return <ChannelDetails channelId={id}/>;
+}
 
 function App() {
   
@@ -28,7 +34,7 @@ function App() {
     <div className="App" >
       <BrowserRouter>
         {
-          localStorage.getItem('token') == "false" ? 
+          localStorage.getItem('token') == null ||  localStorage.getItem('token') == "false" ? 
           <Switch>
               <Route path="/*" exact component={LoginPage} />
           </Switch>
@@ -37,7 +43,9 @@ function App() {
               <Route path="/" exact component={HomePage} />
               <Route path="/video/:id" children={<Details />} />
               <Route path="/play/:id" children={<Player />} />
+              <Route path="/channel/:id" children={<Channel />} />
               <Route path="/login" children={<LoginPage />} />
+              
         </Switch>}
       </BrowserRouter>
       <ToastContainer

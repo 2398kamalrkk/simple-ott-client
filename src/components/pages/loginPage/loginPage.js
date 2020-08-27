@@ -69,6 +69,7 @@ class loginPage extends React.Component {
               {
                 console.log(json.token)
                 localStorage.setItem("token",json.token);
+                localStorage.setItem("mobile",json.mobile);
                 localStorage.setItem("username",json.username);
                 window.location.href = "/"
               }

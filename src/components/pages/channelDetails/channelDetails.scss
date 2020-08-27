@@ -1,0 +1,122 @@
+.image-channel
+{
+    height: 260px;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: right top;
+    opacity: 1;
+    margin : auto;
+}
+.blur-channel-1
+{
+    height: 260px;
+    width: 50%;
+    background-image: linear-gradient(to right,rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    position: absolute;
+    top: 0;
+}
+.blur-channel-2
+{
+    height: 260px;
+    width: 50%;
+    float: right;
+    right : 0;
+    background-image: linear-gradient(to left,rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    position: absolute;
+    top: 0;
+}
+.channel-c
+{
+    height: 260px;
+    width: 100%;
+    cursor: pointer;
+}
+.channel-details-c
+{
+    margin-top:80px;
+    height: 200px;
+    color: #ffffff;
+}
+.channel-logo
+{
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+.channel-logo-image
+{
+    width: 200px;
+    height: 200px;
+}
+.channel-name-details
+{
+    margin-top : -15px;
+    width: 300px;
+    padding-left: 40px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 30pt;
+    font-family: 'Poppins';
+}
+.channel-subscribers-details
+{
+    font-weight: 600;
+    font-size: 12pt;
+    color: #FF1414;
+    width: 300px;
+    padding-left: 40px;
+    text-align: left;
+    font-family: 'Poppins';
+}
+.channel-status-details-outline
+{
+    border: 1px solid #FFDD00;
+    border-radius: 5px;
+    margin-left: 40px;
+    margin-top:90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 130px;
+    color: #FFDD00;
+    cursor: pointer;
+    font-family: 'Poppins';
+}
+.channel-status-details-full
+{
+    border: 1px solid #FFDD00;
+    border-radius: 5px;
+    margin-left: 40px;
+    margin-top:90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 130px;
+    background-color: #FFDD00;
+    color: #000000;
+    cursor: pointer;
+    font-family: 'Poppins';
+}
+.channel-details-c-desc
+{
+    margin-top:80px;
+    text-align: left;
+    color : #ffffff;
+    font-family: 'Poppins';
+}
+.channel-details-c-desc-title
+{
+    font-weight: 600;
+    float: left;
+    font-size: 14pt;
+}
+.channel-details-c-desc-main
+{
+    margin-top:10px;
+    text-align: justify;
+    float: left;
+    font-size: 11pt;
+}

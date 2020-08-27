@@ -41,6 +41,7 @@ class VideoPlayer extends React.Component{
           audio : "",
           publisher : "",
           videoUrl : "",
+          status : "loading"
         };
 
       }
@@ -54,6 +55,30 @@ class VideoPlayer extends React.Component{
             window.here.setState({width : window.innerWidth +"px"})
           }
         });
+      }
+      checkSubscribed(id)
+      {
+        fetch(process.env.REACT_APP_BASE_URL + "/services/channel/currentChannel/" + id +"/"+localStorage.getItem("mobile"), {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization' : 'JWT ' + localStorage.getItem("token"),
+          },
+        })
+          .then(res => res.json())
+          .then(json => {
+            console.log(json[0].status)
+              this.setState({status : json[0].status})
+              if(json[0].status == "subscribed")
+              {
+                this.customVolume();
+      
+        
+        setInterval(() => this.setState({ currentTime: this.currentTime() }), 10);
+    
+        setInterval(() => this.setState({ length: this.duration() }), 10);
+              }
+          }); 
       }
       componentDidMount() {
         fetch(process.env.REACT_APP_BASE_URL + "/services/movie/getMovie/" + this.props.videoId, {
@@ -69,12 +94,19 @@ class VideoPlayer extends React.Component{
               console.log(json);
               this.setState({videoName : json.videoName , videoUrl : json.videoUrl});
               console.log(this.state.videoUrl)
+              this.checkSubscribed(json.channelId)
           });
       this.setState({videoId : this.props.videoId});
+      
+      if(this.state.status == "subscribed")
+      {
         this.customVolume();
+      
+        
         setInterval(() => this.setState({ currentTime: this.currentTime() }), 10);
     
         setInterval(() => this.setState({ length: this.duration() }), 10);
+      }
         document.addEventListener('keydown', e => {
           if(e.keyCode === 32) 
           { 
@@ -282,10 +314,23 @@ class VideoPlayer extends React.Component{
     render(){
         return(
             <div className="VideoPlayer" id='cont'>
+       
         
-        <div className="video-containers-c">
+         {
+          this.state.status == "loading"
+          ?
+          <div className="status_video">Loading</div>
+          :
+          this.state.status == "notsubscribed"
+          ?
+          <div className="status_video">Please subscribe to watch</div>
+          :
+          <span>
+          </span>
+        }
+            <div className="video-containers-c">
           {
-            this.state.appearSettings
+            this.state.appearSettings && this.state.status == "subscribed"
             ?
             <div className="overlay-containers">
               <div className="video-player-title">
@@ -312,12 +357,19 @@ class VideoPlayer extends React.Component{
             <div></div>
           }
           
-          <video id="v" src={this.state.videoUrl} width={this.state.width} height={window.innerHeight +"px"} autoPlay={true}>
+          {
+            this.state.status == "subscribed"
+            ?
+            <video id="v" src={this.state.videoUrl} width={this.state.width} height={window.innerHeight +"px"} autoPlay={true}>
           {/* <source src={this.state.videoUrl} type="video/mp4" /> */}
         </video>
+            :
+        <div></div>
+          }
+          
         </div>
         {
-          this.state.appearSettings
+          this.state.appearSettings && this.state.status == "subscribed"
           ?
           <div style={{width : this.state.width}} className="controls">
 
@@ -417,7 +469,7 @@ class VideoPlayer extends React.Component{
           :
           <div></div>
         }
-        
+          
       </div>
 
           )
