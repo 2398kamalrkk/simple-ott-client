@@ -74,8 +74,8 @@ class NavBar extends React.Component{
                         <div className="menu-items">
                             <ul className="menu-item-list">
                                 <a href="/" className="nav">Home</a>
-                                <a className="nav">Channel</a>
-                                <a className="nav">Videos</a>
+                                {/* <a className="nav">Channel</a>
+                                <a className="nav">Videos</a> */}
                             </ul>
                         </div>
                         </Row>
@@ -91,7 +91,7 @@ class NavBar extends React.Component{
 
                                     }
                                     
-                                    {
+                                    {/* {
                                         this.props.fromPage == "channel"
                                         ?
                                         <li className="nav-highlight whiteNav"></li>
@@ -106,7 +106,7 @@ class NavBar extends React.Component{
                                         :
                                         <li className="nav-highlight blackNav"></li>
 
-                                    }
+                                    } */}
                                 </ul>
                             </div>
                         </Row>
@@ -162,8 +162,8 @@ class NavBar extends React.Component{
                                     <MaterialIcon icon="arrow_drop_down" size={30} color="#ffdd00"/>
                                 </div>
                                 <div class="dropdown-content">
-                                    <a className="dropdown-content-list" href="/account">My Account</a>
-                                    <a className="dropdown-content-list" href="/watchlist">My Watchlist</a>
+                                    {/* <a className="dropdown-content-list" href="/account">My Account</a>
+                                    <a className="dropdown-content-list" href="/watchlist">My Watchlist</a> */}
                                     <a className="dropdown-content-list" href="" onClick={() => localStorage.setItem("token","false")}>Sign out</a>
                                 </div>
                             </div>

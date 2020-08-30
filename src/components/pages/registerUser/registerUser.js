@@ -1,5 +1,5 @@
 import React from 'react';
-import './loginPage.scss';
+import './registerUser.scss';
 import ReactPlayer from 'react-player'
 import { Container, Row, Col } from 'react-bootstrap';
 import NavBar from '../../segments/navBar/navBar';
@@ -49,9 +49,13 @@ class loginPage extends React.Component {
           password: evt.target.value,
         });
       }
-      signIn()
+      register()
       {
-        if(document.getElementById("username").value == "")
+        if(document.getElementById("name").value == "")
+        {
+          toast.warn("Please enter nick name");
+        }
+        else if(document.getElementById("username").value == "")
         {
           toast.warn("Please enter mobile number");
         }
@@ -59,29 +63,30 @@ class loginPage extends React.Component {
         {
           toast.warn("Please enter password");
         }
+        else if(document.getElementById("password").value != document.getElementById("confirmpassword").value)
+        {
+          toast.warn("Password did not match");
+        }
         else
         {
         console.log("API CALLED")
-        let data ={mobileNumber : document.getElementById("username").value , passWord : document.getElementById("password").value }
-        fetch(process.env.REACT_APP_BASE_URL + "/login/userLogin/login/", {
+        let data ={userName : document.getElementById("name").value , mobileNumber : document.getElementById("username").value , passWord : document.getElementById("password").value }
+        fetch(process.env.REACT_APP_BASE_URL + "/login/userSignUp/signUpDetails/", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body : JSON.stringify(data),
         })
-          .then(res => res.json())
+          .then(res => res.text())
           .then(json => {
-              if(json.status == "FAILURE")
+              if(json == "FAILED")
               {
-                toast.warn("Incorrect username or password");
+                toast.warn("Mobile number already registered");
               }
-              else if(json.status == "SUCCESS")
+              else if(json == "SUCCESS")
               {
                 console.log(json.token)
-                localStorage.setItem("token",json.token);
-                localStorage.setItem("mobile",json.mobile);
-                localStorage.setItem("username",json.username);
                 window.location.href = "/"
               }
           });
@@ -100,7 +105,10 @@ class loginPage extends React.Component {
                   <div id="login-column" class="col-md-6">
                       <div id="login-box" class="col-md-12">
                           <form id="login-form" class="form" action="" method="post">
-                              <h3 class="text-left text-label">Sign In</h3>
+                              <h3 class="text-left text-label">Sign Up</h3>
+                              <div class="form-group">
+                                  <input type="text" name="name" id="name" class="form-control input-box" placeholder="Nick Name"/>
+                              </div>
                               <div class="form-group">
                                   <input type="text" name="username" id="username" class="form-control input-box" placeholder="Mobile number"/>
                               </div>
@@ -108,12 +116,14 @@ class loginPage extends React.Component {
                                   <input type="password" name="password" id="password" class="form-control input-box" placeholder="Password"/>
                               </div>
                               <div class="form-group">
-                                  {/* <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox" /></span></label><br /> */}
-                                  <div onClick={() => {this.signIn()}} name="Sign-in" class="full-button" >Sign In</div>
+                                  <input type="password" name="confirmpassword" id="confirmpassword" class="form-control input-box" placeholder="Confirm password"/>
                               </div>
                               <div class="form-group">
-                                <p style={{color:"#FFDD00",fontSize:"10pt"}}>New to Play Frames?</p>
-                                  <div name="Register" onClick={() => window.location.href="/register"} class="full-button-outline" >Sign up</div>
+                                  {/* <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox" /></span></label><br /> */}
+                                  <div onClick={() => {this.register()}} name="Sign-in" class="full-button" >Register</div>
+                              </div>
+                              <div class="form-group">
+                                <p style={{color:"#FFDD00",fontSize:"10pt",cursor:"pointer"}} onClick={() => window.location.href = "/"}>Already an user ?</p>
                               </div>
                           </form>
                       </div>

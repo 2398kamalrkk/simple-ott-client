@@ -126,7 +126,7 @@ class ChannelDetails extends React.Component{
                     <Row>
                             <Col style={{display:"flex",justifyContent:"start",paddingLeft:"0px",paddingRight:"0px"}} md={12}>
                                 
-                                        <ChannelVideos key={this.state.id} channelId={this.state.id}/>
+                                        <ChannelVideos key={this.state.id} channelId={this.state.channelId}/>
                                     
                             </Col>
                     </Row>
